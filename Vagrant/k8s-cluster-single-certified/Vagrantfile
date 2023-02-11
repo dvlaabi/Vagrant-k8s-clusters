@@ -1,5 +1,3 @@
-# Initialize Vagrant
-cat > Vagrantfile <<-EOF
 Vagrant.configure('2') do |config|
   config.vm.hostname = 'kubernetes-1.26'
   config.vm.box = 'alvistack/kubernetes-1.26'
@@ -26,14 +24,3 @@ Vagrant.configure('2') do |config|
     virtualbox.memory = 8192
   end
 end
-EOF
-
-# Start the virtual machine
-export VAGRANT_EXPERIMENTAL='1'
-vagrant up
-
-# SSH into this machine
-vagrant ssh
-
-# Terminate the virtual machine
-vagrant destroy --force
